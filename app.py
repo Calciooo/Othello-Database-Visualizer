@@ -149,24 +149,6 @@ def server(input, output, session):
         )
         
     @output
-    @render.plot(alt="Speakers Graph")
-    def speaker_plot():
-        data = r().value_counts('SPEAKER')   
-        if len(data)==0:
-            return    
-        if input.display_speakers(): return data.plot(kind='bar',color='mediumaquamarine')  
-        else: return
-        
-    @output
-    @render.plot(alt="Addressee Graph")
-    def addressee_plot():
-        data = r().value_counts('ADDRESSEE')    
-        if len(data)==0:
-            return
-        if input.display_addressee(): return data.plot(kind='bar',color='mediumaquamarine')  
-        else: return
-
-    @output
     @render.plot(alt="Logic Graph")
     def logic_plot():
         data = r().value_counts('LOGIC')
